@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, Lock, User, ArrowRight, CheckCircle } from 'lucide-react';
 import './LoginSignup.css'
+import { useNavigate } from 'react-router-dom';
 
 
 type ViewType = 'login' | 'signup';
@@ -13,7 +14,6 @@ const LoginSignup: React.FC = () => {
         password: '',
         confirmPassword: ''
     });
-
     // Basic validation check
     const isLoginValid = formData.email && formData.password;
     const isSignupValid =
@@ -43,13 +43,16 @@ const LoginSignup: React.FC = () => {
         }));
     };
 
+    const navigate = useNavigate();
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        
         if (!isFormValid) return;
 
         // Simulate API call
         console.log(`Submitting ${view} form`, formData);
         alert(`${view === 'login' ? 'Logged In' : 'Signed Up'} successfully! (Check console for data)`);
+        navigate("/dashboard");
     };
 
     return (
