@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import { Mail, Lock, User, ArrowRight, CheckCircle } from 'lucide-react';
 import './LoginSignup.css'
 import { useNavigate } from 'react-router-dom';
-
 
 type ViewType = 'login' | 'signup';
 
